@@ -5,14 +5,17 @@ import reactRefresh from 'eslint-plugin-react-refresh';
 import globals from 'globals';
 
 export default tseslint.config(
-    eslint.configs.recommended,
+    {
+        ...eslint.configs.recommended,
+        ignores: ['dist/**', 'public/**'],
+    },
     {
         extends: [
             ...tseslint.configs.strictTypeChecked,
             ...tseslint.configs.stylisticTypeChecked,
         ],
-        ignores: ['dist'],
         files: ['**/*.{ts,tsx}'],
+        ignores: ['dist/**', 'public/**'],
         languageOptions: {
             globals: globals.browser,
             parserOptions: {
