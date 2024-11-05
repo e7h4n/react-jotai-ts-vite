@@ -3,7 +3,7 @@ on:
   - pull_request
 
 jobs:
-  install:
+  lint-and-test:
     runs-on: ubuntu-latest
 
     steps:
@@ -30,8 +30,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile --strict-peer-dependencies
 
-      - name: Run tests
-        run: pnpm test
-
       - name: Run lint
         run: pnpm lint
+
+      - name: Run tests
+        run: pnpm test
