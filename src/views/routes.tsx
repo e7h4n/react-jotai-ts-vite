@@ -1,8 +1,8 @@
 import { RouteObject } from "react-router-dom";
-import { Home } from "./views/home";
+import { Home } from "./home";
 import { createSignalSwitch } from "signal-transaction";
 import { getDefaultStore } from "jotai";
-import { userAtom } from "./atoms/user";
+import { userAtom } from "../atoms/user";
 
 export function initRoutes(rootSignal: AbortSignal): RouteObject[] {
   const signalSwitch = createSignalSwitch(rootSignal);

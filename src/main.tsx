@@ -1,7 +1,7 @@
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { StrictMode } from "react";
-import { initRoutes } from "./routes";
+import { initRoutes } from "./views/routes";
 
 async function prepare() {
   if (import.meta.env.DEV) {

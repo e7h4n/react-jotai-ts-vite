@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import { cleanup, render, screen } from "@testing-library/react";
-import { initRoutes } from "../routes";
+import { initRoutes } from "../views/routes";
 import { createMemoryRouter, RouterProvider } from "react-router-dom";
 import { StrictMode } from "react";
 
