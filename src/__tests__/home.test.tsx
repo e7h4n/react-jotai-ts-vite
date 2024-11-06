@@ -1,20 +1,26 @@
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import { cleanup, render, screen } from "@testing-library/react";
-import { initRoutes } from "../views/routes";
+import { initRouterArgs } from "../router/router";
 import { createMemoryRouter, RouterProvider } from "react-router-dom";
 import { StrictMode } from "react";
+import { createStore } from "jotai/vanilla";
+import { Provider } from "jotai/react";
 
 describe("Home", () => {
   let abortController: AbortController;
 
   beforeEach(() => {
     abortController = new AbortController();
-    const routes = initRoutes(abortController.signal);
-    const router = createMemoryRouter(routes);
+    const store = createStore();
+    const [routes, options] = initRouterArgs(store, abortController.signal);
+
+    const router = createMemoryRouter(routes, options);
 
     render(
       <StrictMode>
-        <RouterProvider router={router} />
+        <Provider store={store}>
+          <RouterProvider router={router} />
+        </Provider>
       </StrictMode>
     );
   });

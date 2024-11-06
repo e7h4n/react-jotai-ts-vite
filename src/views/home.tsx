@@ -4,6 +4,7 @@ import { loadable } from "jotai/vanilla/utils";
 
 export function Home() {
   const user = useAtomValue(loadable(userAtom));
+
   if (user.state === "loading") {
     return <div>Loading...</div>;
   }

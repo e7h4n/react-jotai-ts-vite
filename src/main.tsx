@@ -1,7 +1,9 @@
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { StrictMode } from "react";
-import { initRoutes } from "./views/routes";
+import { initRouterArgs } from "./router/router";
+import { createStore } from "jotai/vanilla";
+import { Provider } from "jotai/react";
 
 async function prepare() {
   if (import.meta.env.DEV) {
@@ -18,12 +20,16 @@ void prepare().then(() => {
     return;
   }
 
-  const rootSignal = new AbortController().signal;
-  const routes = initRoutes(rootSignal);
-  const router = createBrowserRouter(routes);
+  const store = createStore();
+  const router = createBrowserRouter(
+    ...initRouterArgs(store, new AbortController().signal)
+  );
+
   createRoot(root).render(
     <StrictMode>
-      <RouterProvider router={router} />
+      <Provider store={store}>
+        <RouterProvider router={router} />
+      </Provider>
     </StrictMode>
   );
 });

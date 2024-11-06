@@ -20,6 +20,9 @@ dependencies:
   react-router-dom:
     specifier: ^6.27.0
     version: 6.27.0(react-dom@18.3.1)(react@18.3.1)
+  signal-react-router:
+    specifier: ^1.0.0
+    version: 1.0.0(react-dom@18.3.1)(react@18.3.1)
   signal-transaction:
     specifier: ^1.1.0
     version: 1.1.0
@@ -2471,6 +2474,17 @@ packages:
     resolution: {integrity: sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw==}
     engines: {node: '>=14'}
     dev: true
+
+  /signal-react-router@1.0.0(react-dom@18.3.1)(react@18.3.1):
+    resolution: {integrity: sha512-x0XqEV39xAF8kEwrcjqeDZczkWgjmtqhqzWKoyV61eMY/YpqW25dc1VhmZ9+I7iYzRT/0V8vcshxTpeOS6tqcQ==}
+    engines: {node: '>=10'}
+    dependencies:
+      react-router: 6.27.0(react@18.3.1)
+      react-router-dom: 6.27.0(react-dom@18.3.1)(react@18.3.1)
+    transitivePeerDependencies:
+      - react
+      - react-dom
+    dev: false
 
   /signal-transaction@1.1.0:
     resolution: {integrity: sha512-p+IPQCop4vqQNbkn/DIktpxSpueNkpdKVZZoZPCmuI2M7nuIsvscBcXBhn7CgGx5bMSmnrFr3uqkqGWPbvvt/w==}
